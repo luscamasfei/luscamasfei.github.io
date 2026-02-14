@@ -9,7 +9,7 @@ body {
   color: #e5e7eb;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  padding-top: 90px;
+  padding-top: 78px; /* espaço do header fixo */
   opacity: 1;
   transition: opacity 0.4s ease-in-out;
 }
@@ -18,43 +18,88 @@ body.fade-out {
   opacity: 0;
 }
 
-/* ================= NAV ================= */
+/* ================= NAV (fixa, centralizada, sem logo) ================= */
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 80px;
-  align-items: center;
+header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
-  background-color: #000;
+  z-index: 2000;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-.logo {
-  color: #ef4444;
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-nav ul {
+/* cobre: header nav + header .navbar */
+header nav,
+header .navbar {
+  position: relative;
+  height: 70px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
-  gap: 30px;
-  list-style: none;
+  align-items: center;
+  justify-content: center;
 }
 
-nav a {
+/* esconde logo caso exista em algumas páginas */
+header .logo {
+  display: none !important;
+}
+
+/* UL centralizado real */
+header nav ul,
+header .navbar .nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* links */
+header nav a,
+header .navbar a {
   color: #9ca3af;
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: 0.3s;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  transition: 0.25s ease;
 }
 
-nav a:hover,
-nav a.active {
-  color: #ef4444;
+header nav a:hover,
+header .navbar a:hover {
+  color: #fff;
+  background: rgba(239,68,68,0.12);
+  box-shadow: 0 0 0 1px rgba(239,68,68,0.18) inset;
+}
+
+header nav a.active,
+header .navbar a.active {
+  color: #fff;
+  background: rgba(239,68,68,0.20);
+  box-shadow: 0 0 0 1px rgba(239,68,68,0.25) inset;
+}
+
+@media (max-width: 720px) {
+  header nav ul,
+  header .navbar .nav-links {
+    gap: 14px;
+  }
+
+  header nav a,
+  header .navbar a {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
 }
 
 /* ================= HERO ================= */
@@ -64,7 +109,7 @@ nav a.active {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   padding: 60px 80px;
-  min-height: 90vh;
+  min-height: calc(100vh - 78px);
 }
 
 .hero-image {
@@ -90,7 +135,7 @@ nav a.active {
   border-radius: 50%;
   z-index: 2;
   filter: grayscale(100%) contrast(110%) brightness(90%);
-  box-shadow: 
+  box-shadow:
     0 0 40px rgba(239, 68, 68, 0.6),
     0 0 80px rgba(239, 68, 68, 0.3);
   transition: 0.5s ease;
@@ -148,123 +193,162 @@ nav a.active {
   color: #000;
 }
 
-/* ================= BUTTON ================= */
+/* ================= MODAL (se você usa) ================= */
 
-button {
-  background: transparent;
-  border: 1px solid #ef4444;
-  color: #ef4444;
-  padding: 12px 30px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: 0.3s;
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
-button:hover {
+.modal-content {
+  background: #111;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 500px;
+  text-align: center;
+  border: 1px solid #ef4444;
+}
+
+.modal-content a {
+  color: #ef4444;
+  text-decoration: none;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+/* ================= PROJECTS HERO (nova página) ================= */
+
+.projects-hero-page {
+  padding: 40px 10% 70px;     /* sem “vazio” */
+  min-height: calc(100vh - 78px);
+  display: flex;
+  align-items: flex-start;     /* começa mais alto */
+}
+
+.project-hero {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.95fr 1.25fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.project-hero__image-wrap {
+  width: min(380px, 92vw);
+  margin: 0 auto;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba(239, 68, 68, 0.18);
+  border: 1px solid rgba(239, 68, 68, 0.20);
+  background: #0b0b0b;
+}
+
+.project-hero__image-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-hero__title {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.project-hero__subtitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ef4444;
+  margin-bottom: 18px;
+}
+
+.project-hero__text {
+  color: #9ca3af;
+  max-width: 620px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.project-hero__list {
+  margin: 18px 0 28px;
+  padding-left: 18px;
+  color: #e5e7eb;
+}
+
+.project-hero__list li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.project-hero__actions {
+  margin-top: 10px;
+}
+
+.project-hero__btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 10px;
   background: #ef4444;
   color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.25s ease;
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.28);
 }
 
-/* ================= PROJECTS ================= */
-
-.projects-section {
-  padding: 100px 80px;
-  text-align: center;
+.project-hero__btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
-.projects-section h2 {
-  font-size: 2rem;
-  margin-bottom: 50px;
-  color: #ef4444;
+@media (max-width: 980px) {
+  .project-hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    text-align: center;
+  }
+
+  .project-hero__text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .project-hero__list {
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+@media (max-width: 520px) {
+  .project-hero__title { font-size: 2.2rem; }
+  .project-hero__subtitle { font-size: 1.2rem; }
 }
 
-.project-card {
-  background: #111;
-  padding: 30px;
-  border-radius: 15px;
-  border: 1px solid #222;
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-.project-card:hover {
-  border-color: #ef4444;
-  transform: translateY(-8px);
-}
-
-/* ================= SKILLS PAGE ================= */
+/* ================= SKILLS (sem vazio + cards) ================= */
 
 .skills-page {
-  min-height: calc(100vh - 90px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 10%;
+  padding: 40px 10% 70px;
+  min-height: calc(100vh - 78px);
 }
 
 .section-title {
   text-align: center;
   color: red;
-  margin-bottom: 50px;
+  margin-bottom: 28px;
   font-size: 40px;
 }
-
-.skills-container {
-  max-width: 700px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.skill {
-  margin-bottom: 35px;
-}
-
-.skill-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.skill-header img {
-  width: 24px;
-  height: 24px;
-}
-
-.skill-header span {
-  font-weight: 600;
-}
-
-.progress {
-  background: #222;
-  height: 12px;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  height: 100%;
-  width: 0;
-  border-radius: 6px;
-  transition: width 1.5s ease;
-}
-.skills-page {
-  padding: 40px 10% 70px;
-  display: block;
-  min-height: calc(100vh - 78px);
-}
-
-.section-title {
-  margin-bottom: 28px;
-}
-
-/* ================= SKILLS CARDS (visual melhor) ================= */
 
 .skills-container {
   max-width: 980px;
@@ -294,6 +378,10 @@ button:hover {
   height: 24px;
 }
 
+.skill-header span {
+  font-weight: 600;
+}
+
 .progress {
   background: #222;
   height: 10px;
@@ -304,7 +392,16 @@ button:hover {
 .progress-bar {
   height: 100%;
   border-radius: 999px;
+  width: 0;
+  transition: width 1.5s ease;
 }
+
+/* porcentagens + cores */
+.progress-bar.python { background: #2b6f93; width: 85%; }
+.progress-bar.html   { background: #e44d26; width: 90%; }
+.progress-bar.css    { background: #264de4; width: 80%; }
+.progress-bar.js     { background: #f7df1e; width: 70%; }
+.progress-bar.linux  { background: #ffffff; width: 75%; }
 
 @media (max-width: 860px) {
   .skills-container {
@@ -312,18 +409,11 @@ button:hover {
   }
 }
 
-/* Cores + porcentagem */
-
-.progress-bar.python { background: #2b6f93; width: 85%; }
-.progress-bar.html   { background: #e44d26; width: 90%; }
-.progress-bar.css    { background: #264de4; width: 80%; }
-.progress-bar.js     { background: #f7df1e; width: 70%; }
-.progress-bar.linux  { background: #ffffff; width: 75%; }
-
 /* ================= CONTACT ================= */
 
 .contact-page {
-  padding: 80px 10%;
+  padding: 40px 10% 70px;
+  min-height: calc(100vh - 78px);
   text-align: center;
 }
 
@@ -342,280 +432,28 @@ button:hover {
   text-decoration: none;
   border-radius: 6px;
   transition: 0.3s ease;
+  display: inline-block;
 }
 
 .telegram-btn:hover {
   opacity: 0.8;
 }
 
-/* ================= RESPONSIVO ================= */
+/* ================= RESPONSIVO GLOBAL ================= */
 
 @media (max-width: 768px) {
   .hero {
     grid-template-columns: 1fr;
     text-align: center;
-  }
-}
-/* ============ FIX Projects layout (imagem não estoura) ============ */
-
-.projects-page {
-  padding: 120px 10% 80px; /* mais espaço por causa do nav fixo */
-}
-
-.projects-title {
-  text-align: center;
-}
-
-/* garante flex no container (mesmo que algo sobrescreva) */
-.projects-page .project-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap; /* impede overflow */
-}
-
-/* trava a imagem */
-.projects-page .project-image {
-  flex: 0 1 420px;
-  display: flex;
-  justify-content: center;
-}
-
-.projects-page .project-image img {
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-}
-
-/* texto */
-.projects-page .project-description {
-  flex: 1 1 420px;
-  max-width: 650px;
-  text-align: left;
-}
-
-/* responsivo */
-@media (max-width: 900px) {
-  .projects-page .project-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+    padding: 50px 24px;
   }
 
-  .projects-page .project-description {
-    text-align: center;
-  }
-}
-/* ================= PROJECTS HERO LAYOUT ================= */
-
-.projects-hero-page{
-  padding: 120px 10% 80px; /* respeita o nav fixo */
-  min-height: calc(100vh - 90px);
-  display: flex;
-  align-items: center;
-}
-
-/* layout 2 colunas estilo "hero" */
-.project-hero{
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 70px;
-  align-items: center;
-}
-
-/* imagem grande com glow suave (sem mudar o tema) */
-.project-hero__image-wrap{
-  width: min(380px, 92vw);
-  margin: 0 auto;
-  border-radius: 26px;
-  overflow: hidden;
-  box-shadow: 0 0 60px rgba(239, 68, 68, 0.18);
-  border: 1px solid rgba(239, 68, 68, 0.20);
-  background: #0b0b0b;
-}
-
-.project-hero__image-wrap img{
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* texto à direita */
-.project-hero__title{
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  margin-bottom: 10px;
-}
-
-.project-hero__subtitle{
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #ef4444;
-  margin-bottom: 18px;
-}
-
-.project-hero__text{
-  color: #9ca3af;
-  max-width: 620px;
-  line-height: 1.7;
-  margin-bottom: 18px;
-}
-
-/* lista estilizada */
-.project-hero__list{
-  margin: 18px 0 28px;
-  padding-left: 18px;
-  color: #e5e7eb;
-}
-
-.project-hero__list li{
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-/* botão github com o mesmo estilo do seu tema */
-.project-hero__actions{
-  margin-top: 10px;
-}
-
-.project-hero__btn{
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 10px;
-  background: #ef4444;
-  color: #000;
-  font-weight: 700;
-  text-decoration: none;
-  transition: 0.25s ease;
-  box-shadow: 0 0 25px rgba(239, 68, 68, 0.28);
-}
-
-.project-hero__btn:hover{
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
-/* responsivo */
-@media (max-width: 980px){
-  .project-hero{
-    grid-template-columns: 1fr;
-    gap: 35px;
-    text-align: center;
-  }
-
-  .project-hero__text{
+  .hero-text p {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .project-hero__list{
-    text-align: left;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+  .socials {
+    justify-content: center;
   }
-}
-
-@media (max-width: 520px){
-  .project-hero__title{ font-size: 2.2rem; }
-  .project-hero__subtitle{ font-size: 1.2rem; }
-}
-/* ================= NAV FIXA + LINKS CENTRALIZADOS (sem logo) ================= */
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2000;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-/* garante área clicável e altura */
-header nav,
-header .navbar {
-  position: relative;
-  height: 70px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* esconde a logo caso exista em alguma página */
-header .logo {
-  display: none !important;
-}
-
-/* UL fica CENTRALIZADO real */
-header nav ul,
-header .navbar .nav-links {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 28px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* links estilizados */
-header nav a,
-header .navbar a {
-  color: #9ca3af;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  transition: 0.25s ease;
-}
-
-header nav a:hover,
-header .navbar a:hover {
-  color: #fff;
-  background: rgba(239,68,68,0.12);
-  box-shadow: 0 0 0 1px rgba(239,68,68,0.18) inset;
-}
-
-header nav a.active,
-header .navbar a.active {
-  color: #fff;
-  background: rgba(239,68,68,0.20);
-  box-shadow: 0 0 0 1px rgba(239,68,68,0.25) inset;
-}
-
-/* empurra o conteúdo pra não ficar atrás do header fixo */
-body {
-  padding-top: 78px;
-}
-
-/* mobile: reduz gap e tamanho */
-@media (max-width: 720px) {
-  header nav ul,
-  header .navbar .nav-links {
-    gap: 14px;
-  }
-
-  header nav a,
-  header .navbar a {
-    padding: 8px 10px;
-    font-size: 0.9rem;
-  }
-}
-
-/* fallback: se tiver nav fora de header em alguma página */
-nav {
-  position: relative;
 }
