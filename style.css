@@ -11,14 +11,21 @@ body {
   overflow-x: hidden;
 }
 
-/* NAV */
 
 nav {
   display: flex;
   justify-content: space-between;
   padding: 30px 80px;
   align-items: center;
+
+  position: fixed;   
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;     
+  background-color: #000; 
 }
+
 
 .logo {
   color: #ef4444;
@@ -43,8 +50,10 @@ nav a:hover,
 nav a.active {
   color: #ef4444;
 }
+body {
+  padding-top: 90px; 
+}
 
-/* HERO */
 
 .hero {
   display: grid;
@@ -61,7 +70,7 @@ nav a.active {
   align-items: center;
 }
 
-/* círculo vermelho de fundo */
+
 .circle {
   position: absolute;
   width: 420px;
@@ -72,7 +81,7 @@ nav a.active {
   filter: blur(10px);
 }
 
-/* imagem principal */
+
 .hero-image img {
   width: 340px;
   height: 340px;
@@ -80,10 +89,9 @@ nav a.active {
   border-radius: 50%;
   z-index: 2;
 
-  /* efeito dramático */
   filter: grayscale(100%) contrast(110%) brightness(90%);
   
-  /* glow vermelho */
+
   box-shadow: 
     0 0 40px rgba(239, 68, 68, 0.6),
     0 0 80px rgba(239, 68, 68, 0.3);
@@ -91,7 +99,7 @@ nav a.active {
   transition: 0.5s ease;
 }
 
-/* hover revela cor */
+
 .hero-image img:hover {
   filter: grayscale(0%) contrast(105%) brightness(100%);
   transform: scale(1.05);
@@ -107,7 +115,7 @@ nav a.active {
   z-index: 1;
 }
 
-/* TEXT */
+
 
 .hero-text h1 {
   font-size: 3rem;
@@ -130,7 +138,7 @@ nav a.active {
   line-height: 1.6;
 }
 
-/* SOCIALS */
+
 
 .socials {
   display: flex;
@@ -156,7 +164,7 @@ nav a.active {
   color: #000;
 }
 
-/* BUTTON */
+
 
 button {
   background: transparent;
@@ -173,7 +181,7 @@ button:hover {
   color: #000;
 }
 
-/* PROJECTS */
+
 
 .projects-section {
   padding: 100px 80px;
@@ -206,7 +214,7 @@ button:hover {
   transform: translateY(-8px);
 }
 
-/* MODAL */
+
 
 .modal {
   position: fixed;
@@ -297,7 +305,7 @@ body.fade-out {
   margin-bottom: 10px;
 }
 
-/* RESPONSIVO */
+
 @media (max-width: 768px) {
   .project-content {
     flex-direction: column;
@@ -313,15 +321,13 @@ body.fade-out {
     max-width: 320px;
   }
 }
-/* =========================
-   PROJECTS PAGE
-========================= */
+
 
 .projects-page {
   padding: 80px 10%;
 }
 
-/* Título vermelho fixo */
+
 .projects-title {
   color: red;
   margin-bottom: 60px;
@@ -330,21 +336,21 @@ body.fade-out {
 }
 
 
-/* Container lado a lado */
+
 .project-container {
   display: flex;
   align-items: center;
   gap: 60px;
 }
 
-/* Imagem */
+
 .project-image img {
   width: 400px;
   border-radius: 12px;
   box-shadow: 0 0 25px rgba(0,0,0,0.4);
 }
 
-/* Texto */
+
 .project-description {
   max-width: 600px;
 }
@@ -362,7 +368,7 @@ body.fade-out {
   margin-bottom: 12px;
 }
 
-/* Botão GitHub */
+
 .github-btn {
   display: inline-block;
   margin-top: 25px;
@@ -378,7 +384,7 @@ body.fade-out {
   opacity: 0.8;
 }
 
-/* RESPONSIVO */
+
 @media (max-width: 900px) {
   .project-container {
     flex-direction: column;
@@ -390,9 +396,7 @@ body.fade-out {
     max-width: 450px;
   }
 }
-/* =========================
-   GLOBAL SECTION TITLE
-========================= */
+
 
 .section-title {
   text-align: center;
@@ -401,9 +405,7 @@ body.fade-out {
   font-size: 40px;
 }
 
-/* =========================
-   SKILLS PAGE
-========================= */
+
 
 .skills-page {
   padding: 80px 10%;
@@ -440,9 +442,7 @@ body.fade-out {
   margin-bottom: 10px;
 }
 
-/* =========================
-   CONTACT PAGE
-========================= */
+
 
 .contact-page {
   padding: 80px 10%;
@@ -475,9 +475,7 @@ body.fade-out {
 .contact-card:hover {
   background: red;
 }
-/* =========================
-   SKILLS
-========================= */
+
 
 .skills-page {
   padding: 80px 15%;
@@ -531,10 +529,6 @@ body.fade-out {
 
 
 
-/* =========================
-   CONTACT
-========================= */
-
 .contact-page {
   padding: 80px 10%;
   text-align: center;
@@ -570,7 +564,6 @@ body.fade-out {
     border-radius: 10px;
 }
 
-/* Percentuais */
 
 .progress.python {
     width: 85%;
