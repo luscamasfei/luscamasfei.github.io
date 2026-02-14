@@ -522,6 +522,13 @@ body.fade-out {
   border-radius: 6px;
   transition: width 1.5s ease;
 }
+.bar {
+    flex: 1;
+    height: 10px;
+    background: #333;
+    border-radius: 10px;
+}
+
 
 
 /* =========================
@@ -556,4 +563,31 @@ body.fade-out {
 
 .telegram-btn:hover {
   opacity: 0.8;
+}
+.progress {
+    height: 100%;
+    background: red;
+    border-radius: 10px;
+}
+
+/* Percentuais */
+
+.progress.python {
+    width: 85%;
+}
+
+.progress.html {
+    width: 90%;
+}
+
+.progress.css {
+    width: 80%;
+}
+
+.progress.js {
+    width: 70%;
+}
+
+.progress.linux {
+    width: 75%;
 }
