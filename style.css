@@ -1,23 +1,34 @@
+/* =========================
+   RESET BÁSICO
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background: #000;
+html, body {
+  background-color: #111; /* fundo uniforme igual a home */
   color: #e5e7eb;
   font-family: 'Inter', sans-serif;
+  height: 100%;
   overflow-x: hidden;
+  transition: opacity 0.4s ease-in-out;
 }
 
-/* NAV */
+body.fade-out {
+  opacity: 0;
+}
 
-nav {
+/* =========================
+   NAV / HEADER
+========================= */
+header, nav {
   display: flex;
   justify-content: space-between;
-  padding: 30px 80px;
   align-items: center;
+  padding: 30px 80px;
+  background-color: transparent; /* remove barra preta */
 }
 
 .logo {
@@ -26,26 +37,29 @@ nav {
   font-size: 1.2rem;
 }
 
-nav ul {
+nav ul, .nav-links {
   display: flex;
   gap: 30px;
   list-style: none;
 }
 
-nav a {
+nav a, .nav-links li a {
   color: #9ca3af;
   text-decoration: none;
   font-size: 0.9rem;
+  font-weight: bold;
   transition: 0.3s;
 }
 
-nav a:hover,
-nav a.active {
+nav a:hover, nav a.active,
+.nav-links li a:hover, .nav-links li a.active {
   color: #ef4444;
+  text-decoration: underline;
 }
 
-/* HERO */
-
+/* =========================
+   HERO SECTION
+========================= */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -61,43 +75,6 @@ nav a.active {
   align-items: center;
 }
 
-/* círculo vermelho de fundo */
-.circle {
-  position: absolute;
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle at center, #ef4444 0%, #7f1d1d 60%, transparent 70%);
-  border-radius: 50%;
-  z-index: 1;
-  filter: blur(10px);
-}
-
-/* imagem principal */
-.hero-image img {
-  width: 340px;
-  height: 340px;
-  object-fit: cover;
-  border-radius: 50%;
-  z-index: 2;
-
-  /* efeito dramático */
-  filter: grayscale(100%) contrast(110%) brightness(90%);
-  
-  /* glow vermelho */
-  box-shadow: 
-    0 0 40px rgba(239, 68, 68, 0.6),
-    0 0 80px rgba(239, 68, 68, 0.3);
-
-  transition: 0.5s ease;
-}
-
-/* hover revela cor */
-.hero-image img:hover {
-  filter: grayscale(0%) contrast(105%) brightness(100%);
-  transform: scale(1.05);
-}
-
-
 .circle {
   position: absolute;
   width: 380px;
@@ -105,9 +82,25 @@ nav a.active {
   background: radial-gradient(circle, #ef4444 0%, #7f1d1d 100%);
   border-radius: 50%;
   z-index: 1;
+  filter: blur(10px);
 }
 
-/* TEXT */
+.hero-image img {
+  width: 340px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 2;
+  filter: grayscale(100%) contrast(110%) brightness(90%);
+  box-shadow: 0 0 40px rgba(239, 68, 68, 0.6),
+              0 0 80px rgba(239, 68, 68, 0.3);
+  transition: 0.5s ease;
+}
+
+.hero-image img:hover {
+  filter: grayscale(0%) contrast(105%) brightness(100%);
+  transform: scale(1.05);
+}
 
 .hero-text h1 {
   font-size: 3rem;
@@ -130,8 +123,27 @@ nav a.active {
   line-height: 1.6;
 }
 
-/* SOCIALS */
+/* =========================
+   BUTTONS
+========================= */
+button {
+  background: transparent;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
+button:hover {
+  background: #ef4444;
+  color: #000;
+}
+
+/* =========================
+   SOCIALS
+========================= */
 .socials {
   display: flex;
   gap: 15px;
@@ -156,34 +168,19 @@ nav a.active {
   color: #000;
 }
 
-/* BUTTON */
-
-button {
-  background: transparent;
-  border: 1px solid #ef4444;
-  color: #ef4444;
-  padding: 12px 30px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #ef4444;
-  color: #000;
-}
-
-/* PROJECTS */
-
-.projects-section {
-  padding: 100px 80px;
+/* =========================
+   PROJECTS SECTION
+========================= */
+.projects-section, .projects-page {
+  padding: 100px 10%;
   text-align: center;
 }
 
-.projects-section h2 {
-  font-size: 2rem;
-  margin-bottom: 50px;
+.projects-section h2, .projects-title, .section-title {
+  font-size: 2.5rem;
   color: #ef4444;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
 .projects-grid {
@@ -206,163 +203,23 @@ button:hover {
   transform: translateY(-8px);
 }
 
-/* MODAL */
-
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background: #111;
-  padding: 40px;
-  border-radius: 15px;
-  max-width: 500px;
-  text-align: center;
-  border: 1px solid #ef4444;
-}
-
-.modal-content a {
-  color: #ef4444;
-  text-decoration: none;
-}
-
-.close {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  cursor: pointer;
-}
-.page-section {
-  padding: 120px 80px;
-  min-height: 80vh;
-}
-
-.page-section h1 {
-  font-size: 2.5rem;
-  color: #ef4444;
-  margin-bottom: 20px;
-}
-
-.skills-list {
-  list-style: none;
-  margin-top: 30px;
-}
-
-.skills-list li {
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-}
-
-
-
-
-body {
-  opacity: 1;
-  transition: opacity 0.4s ease-in-out;
-}
-
-body.fade-out {
-  opacity: 0;
-}
-
-.project-content {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.project-image img {
-  width: 280px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
-}
-
-.project-text {
-  flex: 1;
-  text-align: left;
-}
-
-.project-text ul {
-  margin-top: 15px;
-  padding-left: 20px;
-}
-
-.project-text li {
-  margin-bottom: 10px;
-}
-
-/* RESPONSIVO */
-@media (max-width: 768px) {
-  .project-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .project-text {
-    text-align: center;
-  }
-
-  .project-image img {
-    width: 100%;
-    max-width: 320px;
-  }
-}
-/* =========================
-   PROJECTS PAGE
-========================= */
-
-.projects-page {
-  padding: 80px 10%;
-}
-
-/* Título vermelho fixo */
-.projects-title {
-  color: red;
-  margin-bottom: 60px;
-  text-align: center;
-  font-size: 40px;
-}
-
-
-/* Container lado a lado */
+/* PROJECT DETAILS */
 .project-container {
   display: flex;
   align-items: center;
   gap: 60px;
 }
 
-/* Imagem */
 .project-image img {
   width: 400px;
   border-radius: 12px;
   box-shadow: 0 0 25px rgba(0,0,0,0.4);
 }
 
-/* Texto */
 .project-description {
   max-width: 600px;
 }
 
-.project-description h2 {
-  margin-bottom: 20px;
-}
-
-.project-description ul {
-  margin-top: 20px;
-  padding-left: 20px;
-}
-
-.project-description li {
-  margin-bottom: 12px;
-}
-
-/* Botão GitHub */
 .github-btn {
   display: inline-block;
   margin-top: 25px;
@@ -378,41 +235,16 @@ body.fade-out {
   opacity: 0.8;
 }
 
-/* RESPONSIVO */
-@media (max-width: 900px) {
-  .project-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .project-image img {
-    width: 100%;
-    max-width: 450px;
-  }
-}
 /* =========================
-   GLOBAL SECTION TITLE
+   SKILLS SECTION
 ========================= */
-
-.section-title {
-  text-align: center;
-  color: red;
-  margin-bottom: 50px;
-  font-size: 40px;
-}
-
-/* =========================
-   SKILLS PAGE
-========================= */
-
 .skills-page {
   padding: 80px 10%;
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
+.skills-container {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .skill-card {
@@ -421,6 +253,10 @@ body.fade-out {
   border-radius: 12px;
   transition: 0.3s ease;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza conteúdo */
+  text-align: center;
 }
 
 .skill-card:hover {
@@ -432,18 +268,60 @@ body.fade-out {
   color: red;
 }
 
-.skill-card ul {
-  padding-left: 20px;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
 }
 
-.skill-card li {
-  margin-bottom: 10px;
+/* Skill item */
+.skill {
+  margin-bottom: 35px;
 }
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centraliza ícone + nome */
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.skill-header img {
+  width: 24px;
+  height: 24px;
+}
+
+.skill-header span {
+  font-weight: 600;
+}
+
+.progress-bar-container {
+  width: 100%;
+  background: #222;
+  border-radius: 10px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background-color: red;
+  border-radius: 10px;
+  transition: width 1.5s ease-in-out;
+}
+
+/* Percentuais de exemplo */
+.progress.python { width: 85%; }
+.progress.html { width: 90%; }
+.progress.css { width: 80%; }
+.progress.js { width: 70%; }
+.progress.linux { width: 75%; }
 
 /* =========================
    CONTACT PAGE
 ========================= */
-
 .contact-page {
   padding: 80px 10%;
   text-align: center;
@@ -475,74 +353,6 @@ body.fade-out {
 .contact-card:hover {
   background: red;
 }
-/* =========================
-   SKILLS
-========================= */
-
-.skills-page {
-  padding: 80px 15%;
-}
-
-.skills-container {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.skill {
-  margin-bottom: 35px;
-}
-
-.skill-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.skill-header img {
-  width: 24px;
-  height: 24px;
-}
-
-.skill-header span {
-  font-weight: 600;
-}
-
-.progress {
-  background: #222;
-  height: 12px;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  height: 100%;
-  width: 0;
-  background: red;
-  border-radius: 6px;
-  transition: width 1.5s ease;
-}
-.bar {
-    flex: 1;
-    height: 10px;
-    background: #333;
-    border-radius: 10px;
-}
-
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-page {
-  padding: 80px 10%;
-  text-align: center;
-}
-
-.contact-box {
-  margin-top: 40px;
-}
 
 .email-link {
   display: block;
@@ -564,129 +374,38 @@ body.fade-out {
 .telegram-btn:hover {
   opacity: 0.8;
 }
-.progress {
-    height: 100%;
-    background: red;
-    border-radius: 10px;
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 900px) {
+  .project-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .project-image img {
+    width: 100%;
+    max-width: 450px;
+  }
 }
 
-/* Percentuais */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 
-.progress.python {
-    width: 85%;
-}
+  .project-content {
+    flex-direction: column;
+    text-align: center;
+  }
 
-.progress.html {
-    width: 90%;
-}
+  .project-text {
+    text-align: center;
+  }
 
-.progress.css {
-    width: 80%;
-}
-
-.progress.js {
-    width: 70%;
-}
-
-.progress.linux {
-    width: 75%;
-}
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
-header {
-  background-color: #000000;
-  color: white;
-  padding: 1rem 2rem;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.nav-links li a.active {
-  text-decoration: underline;
-}
-
-main.skills-page {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-.skills-title {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.skills-section {
-  margin: 2rem 0;
-}
-
-.skills-title {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.skill {
-  margin-bottom: 1rem;
-}
-
-.skill-info {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.3rem;
-}
-
-.skill-icon {
-  font-size: 24px;
-  margin-right: 10px;
-}
-
-.skill-bar-container {
-  background-color: #e0e0e0;
-  width: 100%;
-  height: 10px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  width: 0;
-  height: 100%;
-  background-color: #fd0101; /* você pode mudar a cor das barras */
-  transition: width 1s ease-in-out;
-}
-
-html, body {
-  background-color: #111; /* mesmo fundo que a Home */
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow-x: hidden; /* evita scroll horizontal indesejado */
-}
-main {
-  min-height: 100vh; /* altura mínima igual à tela */
-  background-color: #111; /* mesmo fundo que body */
-  padding: 2rem; /* mantém seu espaçamento */
+  .project-image img {
+    width: 100%;
+    max-width: 320px;
+  }
 }
