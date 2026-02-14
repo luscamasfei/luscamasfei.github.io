@@ -5,121 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lucas Maffei | Desenvolvedor</title>
 
+<link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #0f172a;
-    color: #e2e8f0;
-}
-
-header {
-    text-align: center;
-    padding: 80px 20px 40px;
-}
-
-header h1 {
-    font-size: 2.8rem;
-    font-weight: 600;
-}
-
-header p {
-    margin-top: 10px;
-    color: #94a3b8;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 40px 20px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.card {
-    background: #1e293b;
-    padding: 30px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    border: 1px solid #334155;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #38bdf8;
-}
-
-.card h3 {
-    margin-bottom: 10px;
-    font-weight: 500;
-}
-
-.card p {
-    color: #94a3b8;
-    font-size: 0.9rem;
-}
-
-footer {
-    text-align: center;
-    padding: 40px;
-    color: #64748b;
-}
-
-/* Modal */
-
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.7);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.modal-content {
-    background: #1e293b;
-    padding: 30px;
-    max-width: 600px;
-    width: 100%;
-    border-radius: 12px;
-    border: 1px solid #334155;
-    animation: fadeIn 0.3s ease;
-}
-
-.modal-content h2 {
-    margin-bottom: 15px;
-}
-
-.modal-content p {
-    margin-bottom: 20px;
-    color: #94a3b8;
-}
-
-.close {
-    text-align: right;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: #38bdf8;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px);}
-    to { opacity: 1; transform: translateY(0);}
-}
-</style>
 </head>
 
 <body>
@@ -132,19 +19,19 @@ footer {
 <section class="container">
     <div class="grid">
 
-        <div class="card" onclick="openModal('Projeto de Automação', 'Sistema de automação para dungeon utilizando lógica de decisão, controle de eventos e manipulação de inputs. Focado em performance e estabilidade.', 'https://github.com/seuusuario/projeto1')">
+        <div class="card" onclick="openModal('Projeto de Automação', 'Sistema de automação inteligente com lógica de decisão e controle de eventos.', 'https://github.com/seuusuario/projeto1')">
             <h3>Projeto de Automação</h3>
             <p>Bot inteligente para execução de tarefas.</p>
         </div>
 
-        <div class="card" onclick="openModal('Dashboard Web', 'Aplicação web com painel administrativo, autenticação JWT e integração com API REST.', 'https://github.com/seuusuario/projeto2')">
+        <div class="card" onclick="openModal('Dashboard Web', 'Painel administrativo com autenticação JWT e API REST.', 'https://github.com/seuusuario/projeto2')">
             <h3>Dashboard Web</h3>
-            <p>Sistema completo com backend e frontend.</p>
+            <p>Sistema completo backend + frontend.</p>
         </div>
 
-        <div class="card" onclick="openModal('Sistema de Login Seguro', 'Implementação de autenticação segura com hash bcrypt, tokens e proteção contra ataques comuns.', 'https://github.com/seuusuario/projeto3')">
+        <div class="card" onclick="openModal('Sistema de Login Seguro', 'Autenticação com bcrypt, tokens e proteção contra ataques comuns.', 'https://github.com/seuusuario/projeto3')">
             <h3>Sistema de Login</h3>
-            <p>Autenticação segura e proteção de dados.</p>
+            <p>Segurança e proteção de dados.</p>
         </div>
 
     </div>
@@ -160,29 +47,10 @@ footer {
         <div class="close" onclick="closeModal()">Fechar ✕</div>
         <h2 id="modal-title"></h2>
         <p id="modal-description"></p>
-        <a id="modal-link" href="#" target="_blank" style="color:#38bdf8;">Ver no GitHub</a>
+        <a id="modal-link" href="#" target="_blank">Ver no GitHub</a>
     </div>
 </div>
 
-<script>
-function openModal(title, description, link) {
-    document.getElementById('modal-title').innerText = title;
-    document.getElementById('modal-description').innerText = description;
-    document.getElementById('modal-link').href = link;
-    document.getElementById('modal').style.display = 'flex';
-}
-
-function closeModal() {
-    document.getElementById('modal').style.display = 'none';
-}
-
-window.onclick = function(e) {
-    const modal = document.getElementById('modal');
-    if (e.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
