@@ -1,21 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Projects | Lucas Maffei</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
-  <script src="./script.js"></script>
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <script src="./script.js" defer></script>
 </head>
 
 <body>
-
- 
   <header>
     <nav class="navbar">
-      <div class="logo">Lucas Maffei</div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="projects.html" class="active">Projects</a></li>
@@ -25,48 +20,43 @@
     </nav>
   </header>
 
- 
-  <main class="projects-page">
-
-    <h1 class="projects-title">Projects</h1>
-
-    <section class="project-container">
-
-      
-      <div class="project-image">
-        <img src="img/twitch-interface.png"
-             alt="Twitch Better Notify Interface">
+  <main class="projects-hero-page">
+    <section class="project-hero">
+      <div class="project-hero__left">
+        <div class="project-hero__image-wrap">
+          <img src="img/twitch-interface.png" alt="Twitch Better Notify Interface" />
+        </div>
       </div>
 
-      
-      <div class="project-description">
-        <h2>Twitch Better Notify</h2>
+      <div class="project-hero__right">
+        <h1 class="project-hero__title">Twitch Better Notify</h1>
+        <h2 class="project-hero__subtitle">Desktop app to monitor Twitch channels in real time</h2>
 
-        <p>
-          Twitch Better Notify was developed to enhance your experience 
-          when following Twitch live streams, allowing you to:
+        <p class="project-hero__text">
+          Twitch Better Notify was built to improve your experience when following Twitch live streams.
+          It runs quietly in the background and gives you fast, reliable alerts when your favorite channels go live.
         </p>
 
-        <ul>
-          <li>Receive instant notifications when your favorite channels go live.</li>
-          <li>View the online/offline status directly in the app with intuitive color-coded buttons.</li>
-          <li>Automatically open the live stream when clicking the notification.</li>
-          <li>Run discreetly in the background, minimized to the system tray.</li>
-          <li>Easily manage your channel list: add, remove and monitor channels.</li>
+        <ul class="project-hero__list">
+          <li>Instant notifications when a channel goes live</li>
+          <li>Online/offline status list with clear color indicators</li>
+          <li>Optional auto-open stream when you click the notification</li>
+          <li>Runs minimized to the system tray</li>
+          <li>Simple channel management: add, remove, monitor</li>
         </ul>
 
-        <a href="https://github.com/luscamasfei/twitchbetternotify"
-           target="_blank"
-           class="github-btn">
-           View on GitHub →
-        </a>
+        <div class="project-hero__actions">
+          <a
+            class="project-hero__btn"
+            href="https://github.com/luscamasfei/twitchbetternotify"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on GitHub →
+          </a>
+        </div>
       </div>
-
     </section>
-
   </main>
-
-  <script src="script.js"></script>
-
 </body>
 </html>
