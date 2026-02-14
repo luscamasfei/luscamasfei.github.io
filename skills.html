@@ -33,81 +33,85 @@
 <head>
 <meta charset="UTF-8">
 <title>Skills</title>
-<style>
-  body {
-    background-color: #111;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    padding: 40px;
-  }
-
-  .skill {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .skill span {
-    width: 120px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 18px;
-  }
-
-  .bar-container {
-    flex: 1;
-    height: 12px;
-    background-color: #333;
-    border-radius: 6px;
-    overflow: hidden;
-  }
-
-  .bar {
-    height: 100%;
-    background-color: #00ffea;
-    width: 0;
-    border-radius: 6px;
-    transition: width 1s ease-in-out;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo de ícones</title>
+  <!-- Font Awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-QKyxXUfdcFz3cV4z0l0H+1R5eK1rZXkG1tbGntTq6cKdVwA8Etft7HQX9Y8ZtcfqNQ0Zf4r0x4xIVy+3kKqzAA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    body {
+      background: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .skill {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .skill i {
+      font-size: 24px;
+      width: 30px;
+    }
+    .skill span {
+      margin-left: 10px;
+    }
+    .bar {
+      height: 6px;
+      background: #333;
+      flex: 1;
+      margin-left: 10px;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      width: 80%; /* ajuste para cada skill */
+      background: #ff0000;
+    }
+  </style>
 </head>
 <body>
-
-<div class="skill">
-  <span>🐍 Python</span>
-  <div class="bar-container">
-    <div class="bar" style="width: 90%;"></div>
+  <div class="skill">
+    <i class="fab fa-python"></i>
+    <span>Python</span>
+    <div class="bar"><div class="bar-fill"></div></div>
   </div>
-</div>
-
-<div class="skill">
-  <span>📄 HTML</span>
-  <div class="bar-container">
-    <div class="bar" style="width: 95%;"></div>
+  
+  <div class="skill">
+    <i class="fab fa-html5"></i>
+    <span>HTML</span>
+    <div class="bar"><div class="bar-fill"></div></div>
   </div>
-</div>
 
-<div class="skill">
-  <span>🎨 CSS</span>
-  <div class="bar-container">
-    <div class="bar" style="width: 85%;"></div>
+  <div class="skill">
+    <i class="fab fa-css3-alt"></i>
+    <span>CSS</span>
+    <div class="bar"><div class="bar-fill"></div></div>
   </div>
-</div>
 
-<div class="skill">
-  <span>🟨 JavaScript</span>
-  <div class="bar-container">
-    <div class="bar" style="width: 80%;"></div>
+  <div class="skill">
+    <i class="fab fa-js-square"></i>
+    <span>JavaScript</span>
+    <div class="bar"><div class="bar-fill"></div></div>
   </div>
-</div>
 
-<div class="skill">
-  <span>🐧 Linux</span>
-  <div class="bar-container">
-    <div class="bar" style="width: 70%;"></div>
+  <div class="skill">
+    <i class="fab fa-linux"></i>
+    <span>Linux</span>
+    <div class="bar"><div class="bar-fill"></div></div>
   </div>
-</div>
+</body>
+</html>
+
 
 </body>
 </html>
