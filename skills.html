@@ -1,106 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Skills | Lucas Maffei</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skills</title>
-  <link rel="stylesheet" href="style.css"> <!-- seu CSS completo -->
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-MY-integrity-code" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
 
-  <!-- NAV / HEADER -->
   <header>
-    <div class="logo">MeuPortfólio</div>
-    <nav>
+    <nav class="navbar">
+      <div class="logo">Lucas Maffei</div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projetos</a></li>
+        <li><a href="projects.html">Projects</a></li>
         <li><a href="skills.html" class="active">Skills</a></li>
-        <li><a href="contact.html">Contato</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- MAIN SKILLS -->
-  <main class="skills-page">
-    <h1 class="section-title">Minhas Skills</h1>
+  <section class="skills-section">
+  <h2 class="skills-title">My Skills</h2>
 
-    <div class="skills-container">
-
-      <!-- Skill 1 -->
-      <div class="skill-card">
-        <div class="skill-header">
-          <img src="icons/python.png" alt="Python" class="skill-icon">
-          <span>Python</span>
-        </div>
-        <div class="progress-bar-container">
-          <div class="progress-bar python"></div>
-        </div>
-      </div>
-
-      <!-- Skill 2 -->
-      <div class="skill-card">
-        <div class="skill-header">
-          <img src="icons/html.png" alt="HTML" class="skill-icon">
-          <span>HTML</span>
-        </div>
-        <div class="progress-bar-container">
-          <div class="progress-bar html"></div>
-        </div>
-      </div>
-
-      <!-- Skill 3 -->
-      <div class="skill-card">
-        <div class="skill-header">
-          <img src="icons/css.png" alt="CSS" class="skill-icon">
-          <span>CSS</span>
-        </div>
-        <div class="progress-bar-container">
-          <div class="progress-bar css"></div>
-        </div>
-      </div>
-
-      <!-- Skill 4 -->
-      <div class="skill-card">
-        <div class="skill-header">
-          <img src="icons/javascript.png" alt="JavaScript" class="skill-icon">
-          <span>JavaScript</span>
-        </div>
-        <div class="progress-bar-container">
-          <div class="progress-bar js"></div>
-        </div>
-      </div>
-
-      <!-- Skill 5 -->
-      <div class="skill-card">
-        <div class="skill-header">
-          <img src="icons/linux.png" alt="Linux" class="skill-icon">
-          <span>Linux</span>
-        </div>
-        <div class="progress-bar-container">
-          <div class="progress-bar linux"></div>
-        </div>
-      </div>
-
+  <div class="skill">
+    <div class="skill-info">
+      <i class="fab fa-html5 skill-icon" style="color:#E44D26;"></i>
+      <span>HTML</span>
     </div>
+    <div class="skill-bar-container">
+      <div class="progress-bar" data-percent="90%"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-info">
+      <i class="fab fa-css3-alt skill-icon" style="color:#264DE4;"></i>
+      <span>CSS</span>
+    </div>
+    <div class="skill-bar-container">
+      <div class="progress-bar" data-percent="85%"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-info">
+      <i class="fab fa-js skill-icon" style="color:#F0DB4F;"></i>
+      <span>JavaScript</span>
+    </div>
+    <div class="skill-bar-container">
+      <div class="progress-bar" data-percent="80%"></div>
+    </div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-info">
+      <i class="fab fa-react skill-icon" style="color:#61DBFB;"></i>
+      <span>React</span>
+    </div>
+    <div class="skill-bar-container">
+      <div class="progress-bar" data-percent="75%"></div>
+    </div>
+  </div>
+
+</section>
+
+
   </main>
 
-  <script>
-    // Script para animar as barras de progresso
-    window.addEventListener('load', () => {
-      const bars = document.querySelectorAll('.progress-bar');
-      bars.forEach(bar => {
-        const width = bar.classList.contains('python') ? '85%' :
-                      bar.classList.contains('html') ? '90%' :
-                      bar.classList.contains('css') ? '80%' :
-                      bar.classList.contains('js') ? '70%' :
-                      bar.classList.contains('linux') ? '75%' : '0';
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 500);
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
