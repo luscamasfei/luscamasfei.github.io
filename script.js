@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* =========================
-     PAGE TRANSITION
-  ========================= */
+
 
   document.querySelectorAll("a").forEach(link => {
     if (link.hostname === window.location.hostname) {
@@ -18,9 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* =========================
-     TYPING EFFECT (Home only)
-  ========================= */
+
 
   const typingElement = document.getElementById("typing");
 
@@ -65,9 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
     typeEffect();
   }
 
-  /* =========================
-     SKILL BAR ANIMATION
-  ========================= */
 
   const bars = document.querySelectorAll(".progress-bar");
 
