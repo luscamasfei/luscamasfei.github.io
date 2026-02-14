@@ -6,51 +6,29 @@
 <title>Lucas Maffei | Desenvolvedor</title>
 
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header>
-    <h1>Lucas Maffei</h1>
-    <p>Desenvolvedor | Automação | Sistemas</p>
-</header>
+<nav>
+  <div class="logo">Lucas</div>
+  <ul>
+    <li><a class="active" href="#">Home</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#">Skills</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
 
-<section class="container">
-    <div class="grid">
+<section class="hero">
+  <div class="hero-image">
+    <div class="circle"></div>
+    <img src="img/profile.png" alt="Lucas Maffei">
+  </div>
 
-        <div class="card" onclick="openModal('Projeto de Automação', 'Sistema de automação inteligente com lógica de decisão e controle de eventos.', 'https://github.com/seuusuario/projeto1')">
-            <h3>Projeto de Automação</h3>
-            <p>Bot inteligente para execução de tarefas.</p>
-        </div>
-
-        <div class="card" onclick="openModal('Dashboard Web', 'Painel administrativo com autenticação JWT e API REST.', 'https://github.com/seuusuario/projeto2')">
-            <h3>Dashboard Web</h3>
-            <p>Sistema completo backend + frontend.</p>
-        </div>
-
-        <div class="card" onclick="openModal('Sistema de Login Seguro', 'Autenticação com bcrypt, tokens e proteção contra ataques comuns.', 'https://github.com/seuusuario/projeto3')">
-            <h3>Sistema de Login</h3>
-            <p>Segurança e proteção de dados.</p>
-        </div>
-
-    </div>
-</section>
-
-<footer>
-    © 2026 Lucas Maffei
-</footer>
-
-<!-- Modal -->
-<div class="modal" id="modal">
-    <div class="modal-content">
-        <div class="close" onclick="closeModal()">Fechar ✕</div>
-        <h2 id="modal-title"></h2>
-        <p id="modal-description"></p>
-        <a id="modal-link" href="#" target="_blank">Ver no GitHub</a>
-    </div>
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
+  <div class="hero-text">
+    <h1>Hi, It's <span>Lucas</span></h1>
+    <h2>I'm a <span>Developer</span></h2>
+    <p>
+      Desenvolvedor focado em automação, sistemas e soluções eficie
