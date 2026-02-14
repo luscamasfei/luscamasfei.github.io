@@ -1,15 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <title>Skills | Lucas Maffei</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-QKyxXUfdcFz3cV4z0l0H+1R5eK1rZXkG1tbGntTq6cKdVwA8Etft7HQX9Y8ZtcfqNQ0Zf4r0x4xIVy+3kKqzAA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
   <link rel="stylesheet" href="./style.css">
-  <script src="./script.js"></script>
+  <script src="./script.js" defer></script>
 
+  <style>
+    body {
+      background: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
+    header {
+      background: #1f1f1f;
+      padding: 10px 20px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .nav-links li a.active {
+      color: #ff0000;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #ff0000;
+    }
+
+    .skill {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .skill i {
+      font-size: 48px;
+      margin-bottom: 10px;
+      display: block;
+      color: #ff0000;
+    }
+
+    .skill span {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .bar {
+      height: 10px;
+      background: #333;
+      border-radius: 5px;
+      overflow: hidden;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .bar-fill {
+      height: 100%;
+      width: 80%; /* Ajuste para cada skill */
+      background: #ff0000;
+    }
+
+    /* Você pode criar classes específicas para cada skill com % diferente */
+    .python .bar-fill { width: 90%; }
+    .html .bar-fill { width: 95%; }
+    .css .bar-fill { width: 85%; }
+    .javascript .bar-fill { width: 80%; }
+    .linux .bar-fill { width: 70%; }
+
+  </style>
 </head>
-
 <body>
 
 <header>
@@ -24,107 +129,113 @@
   </nav>
 </header>
 
-<main class="skills-page">
-
-  <h1 class="section-title">Skills</h1>
-
-  <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<title>Skills</title>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Exemplo de ícones</title>
-  <!-- Font Awesome CDN -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-QKyxXUfdcFz3cV4z0l0H+1R5eK1rZXkG1tbGntTq6cKdVwA8Etft7HQX9Y8ZtcfqNQ0Zf4r0x4xIVy+3kKqzAA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <title>Skills | Lucas Maffei</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       background: #121212;
       color: #fff;
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
+
+    main {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
     .skill {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .skill-header {
       display: flex;
       align-items: center;
+      justify-content: center;
+      gap: 10px;
       margin-bottom: 10px;
+      font-size: 1.2rem;
     }
-    .skill i {
-      font-size: 24px;
-      width: 30px;
+
+    .skill-header img {
+      width: 32px;
+      height: 32px;
     }
-    .skill span {
-      margin-left: 10px;
-    }
+
     .bar {
-      height: 6px;
+      height: 12px;
       background: #333;
-      flex: 1;
-      margin-left: 10px;
-      border-radius: 3px;
+      border-radius: 6px;
       overflow: hidden;
+      width: 100%;
     }
+
     .bar-fill {
       height: 100%;
-      width: 80%; /* ajuste para cada skill */
+      width: 0;
       background: #ff0000;
+      border-radius: 6px;
     }
+
+    /* Cada skill com largura diferente */
+    .python .bar-fill { width: 90%; background: #306998; } /* azul Python */
+    .html .bar-fill { width: 95%; background: #e34f26; } /* laranja HTML */
+    .css .bar-fill { width: 85%; background: #264de4; } /* azul CSS */
+    .javascript .bar-fill { width: 80%; background: #f7df1e; } /* amarelo JS */
+    .linux .bar-fill { width: 70%; background: #f0f0f0; } /* cinza para contraste */
   </style>
 </head>
 <body>
-  <div class="skill">
-    <i class="fab fa-python"></i>
-    <span>Python</span>
-    <div class="bar"><div class="bar-fill"></div></div>
-  </div>
-  
-  <div class="skill">
-    <i class="fab fa-html5"></i>
-    <span>HTML</span>
-    <div class="bar"><div class="bar-fill"></div></div>
-  </div>
 
-  <div class="skill">
-    <i class="fab fa-css3-alt"></i>
-    <span>CSS</span>
+<main>
+  <div class="skill python">
+    <div class="skill-header">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">
+      <span>Python</span>
+    </div>
     <div class="bar"><div class="bar-fill"></div></div>
   </div>
 
-  <div class="skill">
-    <i class="fab fa-js-square"></i>
-    <span>JavaScript</span>
+  <div class="skill html">
+    <div class="skill-header">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML">
+      <span>HTML</span>
+    </div>
     <div class="bar"><div class="bar-fill"></div></div>
   </div>
 
-  <div class="skill">
-    <i class="fab fa-linux"></i>
-    <span>Linux</span>
+  <div class="skill css">
+    <div class="skill-header">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS">
+      <span>CSS</span>
+    </div>
     <div class="bar"><div class="bar-fill"></div></div>
   </div>
-</body>
-</html>
 
-
-</body>
-</html>
-
-
-
-</div>
-
-
+  <div class="skill javascript">
+    <div class="skill-header">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript">
+      <span>JavaScript</span>
+    </div>
+    <div class="bar"><div class="bar-fill"></div></div>
   </div>
 
+  <div class="skill linux">
+    <div class="skill-header">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux">
+      <span>Linux</span>
+    </div>
+    <div class="bar"><div class="bar-fill"></div></div>
+  </div>
 </main>
 
-<script src="script.js"></script>
 </body>
 </html>
+
