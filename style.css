@@ -600,7 +600,7 @@ body.fade-out {
 
 
 header {
-  background-color: #000000;
+  background-color: #222;
   color: white;
   padding: 1rem 2rem;
 }
@@ -678,15 +678,3 @@ main.skills-page {
   transition: width 1s ease-in-out;
 }
 
-html, body {
-  background-color: #111; /* mesmo fundo que a Home */
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow-x: hidden; /* evita scroll horizontal indesejado */
-}
-main {
-  min-height: 100vh; /* altura mínima igual à tela */
-  background-color: #111; /* mesmo fundo que body */
-  padding: 2rem; /* mantém seu espaçamento */
-}
