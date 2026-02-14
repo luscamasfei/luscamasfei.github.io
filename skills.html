@@ -4,79 +4,75 @@
   <meta charset="UTF-8">
   <title>Skills | Lucas Maffei</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js"></script>
 
-  <!-- Font Awesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-MY-integrity-code" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
+
 <body>
 
-  <header>
-    <nav class="navbar">
-      <div class="logo">Lucas Maffei</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="skills.html" class="active">Skills</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <nav class="navbar">
+    <div class="logo">Lucas Maffei</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="skills.html" class="active">Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <main class="skills-page">
+<main class="skills-page">
 
-    <h1 class="skills-title">My Skills</h1>
+  <h1 class="section-title">Skills</h1>
 
-    <section class="skills-section">
+  <div class="skills-container">
 
-      <div class="skill">
-        <div class="skill-info">
-          <i class="fab fa-html5 skill-icon" style="color:#E44D26;"></i>
-          <span>HTML</span>
-        </div>
-        <div class="skill-bar-container">
-          <div class="progress-bar" data-percent="90%"></div>
-        </div>
-      </div>
+  <div class="skill">
+    <span>Python</span>
+    <div class="bar">
+        <div class="progress python"></div>
+    </div>
+</div>
 
-      <div class="skill">
-        <div class="skill-info">
-          <i class="fab fa-css3-alt skill-icon" style="color:#264DE4;"></i>
-          <span>CSS</span>
-        </div>
-        <div class="skill-bar-container">
-          <div class="progress-bar" data-percent="85%"></div>
-        </div>
-      </div>
+<div class="skill">
+    <span>HTML</span>
+    <div class="bar">
+        <div class="progress html"></div>
+    </div>
+</div>
 
-      <div class="skill">
-        <div class="skill-info">
-          <i class="fab fa-js skill-icon" style="color:#F0DB4F;"></i>
-          <span>JavaScript</span>
-        </div>
-        <div class="skill-bar-container">
-          <div class="progress-bar" data-percent="80%"></div>
-        </div>
-      </div>
+<div class="skill">
+    <span>CSS</span>
+    <div class="bar">
+        <div class="progress css"></div>
+    </div>
+</div>
 
-      <div class="skill">
-        <div class="skill-info">
-          <i class="fab fa-react skill-icon" style="color:#61DBFB;"></i>
-          <span>React</span>
-        </div>
-        <div class="skill-bar-container">
-          <div class="progress-bar" data-percent="75%"></div>
-        </div>
-      </div>
+<div class="skill">
+    <span>JavaScript</span>
+    <div class="bar">
+        <div class="progress js"></div>
+    </div>
+</div>
 
-    </section>
+<div class="skill">
+    <span>Linux</span>
+    <div class="bar">
+        <div class="progress linux"></div>
+    </div>
+</div>
 
-  </main>
 
-  <script src="script.js"></script>
+</div>
 
+
+  </div>
+
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
