@@ -1,73 +1,90 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-
-  document.querySelectorAll("a").forEach(link => {
+  // ===== Fade-out navigation (mantém o seu) =====
+  document.querySelectorAll("a").forEach((link) => {
     if (link.hostname === window.location.hostname) {
       link.addEventListener("click", function (e) {
-        e.preventDefault();
-        const href = this.href;
+        // só intercepta links normais (não âncoras na mesma página)
+        const href = this.getAttribute("href");
+        if (!href || href.startsWith("#")) return;
 
+        e.preventDefault();
         document.body.classList.add("fade-out");
 
         setTimeout(() => {
-          window.location.href = href;
+          window.location.href = this.href;
         }, 400);
       });
     }
   });
 
-
-
+  // ===== Typing effect (corrigido, sem travar) =====
   const typingElement = document.getElementById("typing");
-
   if (typingElement) {
     const roles = [
       "Web Developer",
       "Backend Engineer",
       "Automation Specialist",
-      "Melhor gwen BR"
+      "Melhor gwen BR",
     ];
+
+    const typeSpeed = 90;        // velocidade digitando
+    const deleteSpeed = 45;      // velocidade apagando
+    const pauseAfterType = 900;  // pausa quando termina a palavra
+    const pauseAfterDelete = 200;
 
     let roleIndex = 0;
     let charIndex = 0;
-    let currentText = "";
     let isDeleting = false;
 
-    function typeEffect() {
-      const fullText = roles[roleIndex];
+    function tick() {
+      const word = roles[roleIndex];
 
-      if (isDeleting) {
-        currentText = fullText.substring(0, charIndex--);
+      if (!isDeleting) {
+        // digitando
+        charIndex++;
+        typingElement.textContent = word.substring(0, charIndex);
+
+        if (charIndex === word.length) {
+          isDeleting = true;
+          setTimeout(tick, pauseAfterType);
+          return;
+        }
+
+        setTimeout(tick, typeSpeed);
       } else {
-        currentText = fullText.substring(0, charIndex++);
+        // apagando
+        charIndex--;
+        typingElement.textContent = word.substring(0, Math.max(charIndex, 0));
+
+        if (charIndex <= 0) {
+          isDeleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+          setTimeout(tick, pauseAfterDelete);
+          return;
+        }
+
+        setTimeout(tick, deleteSpeed);
       }
-
-      typingElement.textContent = currentText;
-
-      if (!isDeleting && charIndex === fullText.length) {
-        isDeleting = true;
-        setTimeout(typeEffect, 1200);
-        return;
-      }
-
-      if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-      }
-
-      setTimeout(typeEffect, isDeleting ? 50 : 100);
     }
 
-    typeEffect();
+    tick();
   }
 
-
+  // ===== Progress bars (só anima se tiver data-percent) =====
   const bars = document.querySelectorAll(".progress-bar");
+  bars.forEach((bar) => {
+    const percentAttr = bar.getAttribute("data-percent");
 
-  bars.forEach(bar => {
-    const percent = bar.getAttribute("data-percent");
+    // se não tem data-percent, não mexe (pra não quebrar seu CSS por classe)
+    if (!percentAttr) return;
+
+    const percent = Number(percentAttr);
+    if (!Number.isFinite(percent)) return;
+
+    // começa em 0 e anima para o percentual
+    bar.style.width = "0%";
     setTimeout(() => {
-      bar.style.width = percent + "%";
-    }, 300);
+      bar.style.width = `${Math.max(0, Math.min(100, percent))}%`;
+    }, 250);
   });
 });
