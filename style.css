@@ -9,7 +9,7 @@ body {
   color: #e5e7eb;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  padding-top: 78px; /* espaço do header fixo */
+  padding-top: 78px; 
   opacity: 1;
   transition: opacity 0.4s ease-in-out;
 }
@@ -18,7 +18,6 @@ body.fade-out {
   opacity: 0;
 }
 
-/* ================= NAV (fixa, centralizada, sem logo) ================= */
 
 header {
   position: fixed;
@@ -31,7 +30,7 @@ header {
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-/* cobre: header nav + header .navbar */
+
 header nav,
 header .navbar {
   position: relative;
@@ -44,12 +43,12 @@ header .navbar {
   justify-content: center;
 }
 
-/* esconde logo caso exista em algumas páginas */
+
 header .logo {
   display: none !important;
 }
 
-/* UL centralizado real */
+
 header nav ul,
 header .navbar .nav-links {
   position: absolute;
@@ -102,7 +101,7 @@ header .navbar a.active {
   }
 }
 
-/* ================= HERO ================= */
+
 
 .hero {
   display: grid;
@@ -167,7 +166,7 @@ header .navbar a.active {
   line-height: 1.6;
 }
 
-/* ================= SOCIALS ================= */
+
 
 .socials {
   display: flex;
@@ -193,7 +192,7 @@ header .navbar a.active {
   color: #000;
 }
 
-/* ================= MODAL (se você usa) ================= */
+
 
 .modal {
   position: fixed;
@@ -225,13 +224,13 @@ header .navbar a.active {
   cursor: pointer;
 }
 
-/* ================= PROJECTS HERO (nova página) ================= */
+
 
 .projects-hero-page {
-  padding: 40px 10% 70px;     /* sem “vazio” */
+  padding: 40px 10% 70px;    
   min-height: calc(100vh - 78px);
   display: flex;
-  align-items: flex-start;     /* começa mais alto */
+  align-items: flex-start; 
 }
 
 .project-hero {
@@ -336,7 +335,7 @@ header .navbar a.active {
   .project-hero__subtitle { font-size: 1.2rem; }
 }
 
-/* ================= SKILLS (sem vazio + cards) ================= */
+
 
 .skills-page {
   padding: 40px 10% 70px;
@@ -396,7 +395,7 @@ header .navbar a.active {
   transition: width 1.5s ease;
 }
 
-/* porcentagens + cores */
+
 .progress-bar.python { background: #2b6f93; width: 85%; }
 .progress-bar.html   { background: #e44d26; width: 90%; }
 .progress-bar.css    { background: #264de4; width: 80%; }
@@ -409,7 +408,7 @@ header .navbar a.active {
   }
 }
 
-/* ================= CONTACT ================= */
+
 
 .contact-page {
   padding: 40px 10% 70px;
@@ -439,7 +438,7 @@ header .navbar a.active {
   opacity: 0.8;
 }
 
-/* ================= RESPONSIVO GLOBAL ================= */
+
 
 @media (max-width: 768px) {
   .hero {
